@@ -1,0 +1,9 @@
+---
+layout: false
+pagination:
+  data: collections.categories
+  size: 1
+  alias: category
+permalink: /blog/categorias/{{ category | slug }}/index.html
+---
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{{ category }} | Blog Lyrian Scribe</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/blog.css"></head><body><header class="site-header blog-header"><a class="brand" href="/"><span class="brand-mark">L<span>.</span></span><span class="brand-name">LYRIAN <b>SCRIBE</b></span></a><nav class="main-nav"><a href="/">Início</a><a href="/blog/">Blog</a></nav></header><main class="blog-wrap"><a class="back-link" href="/blog/">← Todos os artigos</a><p class="eyebrow">CATEGORIA</p><h1>{{ category }}</h1><section class="post-list">{% for post in collections.publishedPosts %}{% if category in post.data.categories %}<article class="post-card"><div><p class="article-meta"><time>{{ post.date | date('dd/MM/yyyy', 'pt-BR') }}</time></p><h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2><p>{{ post.data.description }}</p><a class="read-link" href="{{ post.url }}">Ler artigo →</a></div>{% if post.data.image %}<a href="{{ post.url }}"><img src="{{ post.data.image }}" alt="{{ post.data.image_alt or post.data.title }}"></a>{% endif %}</article>{% endif %}{% endfor %}</section></main></body></html>
