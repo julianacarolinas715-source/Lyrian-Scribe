@@ -11,6 +11,7 @@ module.exports = function (eleventyConfig) {
     return new Intl.DateTimeFormat(locale, { ...options, timeZone: "UTC" }).format(date);
   });
   eleventyConfig.addPassthroughCopy("styles.css");
+  eleventyConfig.addPassthroughCopy("blog.css");
   eleventyConfig.addPassthroughCopy("script.js");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addCollection("publishedPosts", (api) =>

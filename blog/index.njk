@@ -2,4 +2,68 @@
 layout: false
 permalink: /blog/index.html
 ---
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Artigos sobre escrita, língua portuguesa, literatura e comunicação."><title>Blog | Lyrian Scribe</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/blog.css"></head><body><header class="site-header blog-header"><a class="brand" href="/"><span class="brand-mark">L<span>.</span></span><span class="brand-name">LYRIAN <b>SCRIBE</b></span></a><nav class="main-nav"><a href="/">Início</a><a href="/blog/">Blog</a><a class="nav-cta" href="/#contato">Vamos conversar ↗</a></nav></header><main class="blog-wrap"><p class="eyebrow">LYRIAN SCRIBE / JOURNAL</p><h1>Ideias para ler<br>e levar <em>com você.</em></h1><p class="blog-intro">Reflexões sobre escrita, língua portuguesa, literatura e comunicação no cotidiano.</p><nav class="category-list" aria-label="Categorias"><a href="/blog/">Todos</a>{% for category in collections.categories %}<a href="/blog/categorias/{{ category | slug }}/">{{ category }}</a>{% endfor %}</nav><section class="post-list">{% for post in collections.publishedPosts %}<article class="post-card"><div><p class="article-meta"><time datetime="{{ post.date | date('yyyy-MM-dd') }}">{{ post.date | date('dd/MM/yyyy', 'pt-BR') }}</time>{% for category in post.data.categories %}<a href="/blog/categorias/{{ category | slug }}/">{{ category }}</a>{% endfor %}</p><h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2><p>{{ post.data.description }}</p><a class="read-link" href="{{ post.url }}">Ler artigo →</a></div>{% if post.data.image %}<a href="{{ post.url }}"><img src="{{ post.data.image }}" alt="{{ post.data.image_alt or post.data.title }}"></a>{% endif %}</article>{% else %}<p class="empty-blog">Os próximos artigos estão sendo preparados. Volte em breve.</p>{% endfor %}</section></main><footer class="site-footer"><a class="brand" href="/"><span class="brand-mark">L<span>.</span></span><span class="brand-name">LYRIAN <b>SCRIBE</b></span></a><p>Palavras com propósito. Conteúdo com direção.</p></footer></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Artigos sobre escrita, língua portuguesa, literatura e comunicação.">
+  <title>Blog | Lyrian Scribe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <header class="site-header blog-header">
+    <a class="brand" href="/" aria-label="Lyrian Scribe, início">
+      <span class="brand-mark">L<span>.</span></span>
+      <span class="brand-name">LYRIAN <b>SCRIBE</b></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="/">Início</a>
+      <a href="/blog/">Blog</a>
+      <a class="nav-cta" href="/#contato">Vamos conversar <span>↗</span></a>
+    </nav>
+  </header>
+  <main class="blog-wrap">
+    <p class="eyebrow">LYRIAN SCRIBE / JOURNAL</p>
+    <h1>Ideias para ler<br>e levar <em>com você.</em></h1>
+    <p class="blog-intro">Reflexões sobre escrita, língua portuguesa, literatura e comunicação no cotidiano.</p>
+    <nav class="category-list" aria-label="Categorias">
+      <a href="/blog/">Todas</a>
+      {% for category in collections.categories %}
+        <a href="/blog/categorias/{{ category | slug }}/">{{ category }}</a>
+      {% endfor %}
+    </nav>
+    <section class="post-list" aria-label="Artigos">
+      {% for post in collections.publishedPosts %}
+        <article class="post-card">
+          <div>
+            <p class="article-meta">
+              <time datetime="{{ post.date | date('yyyy-MM-dd') }}">{{ post.date | date('dd/MM/yyyy', 'pt-BR') }}</time>
+              {% for category in post.data.categories %}
+                <a href="/blog/categorias/{{ category | slug }}/">{{ category }}</a>
+              {% endfor %}
+            </p>
+            <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+            <p>{{ post.data.description }}</p>
+            <a class="read-link" href="{{ post.url }}">Ler artigo <span aria-hidden="true">→</span></a>
+          </div>
+          {% if post.data.image %}
+            <a href="{{ post.url }}"><img src="{{ post.data.image }}" alt="{{ post.data.image_alt or post.data.title }}"></a>
+          {% endif %}
+        </article>
+      {% else %}
+        <p class="empty-blog">Os próximos artigos estão sendo preparados. Volte em breve.</p>
+      {% endfor %}
+    </section>
+  </main>
+  <footer class="site-footer blog-footer">
+    <a class="brand" href="/"><span class="brand-mark">L<span>.</span></span><span class="brand-name">LYRIAN <b>SCRIBE</b></span></a>
+    <p>Palavras com propósito. Conteúdo com direção.</p>
+    <a class="back-top" href="/">Voltar ao site</a>
+  </footer>
+</body>
+</html>
