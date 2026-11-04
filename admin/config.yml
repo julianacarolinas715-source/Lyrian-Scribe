@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: SEU-USUARIO/SEU-REPOSITORIO
+  repo: julianacarolinas715-source/Lyrian-Scribe
   branch: main
 locale: pt
 media_folder: "images/uploads"
