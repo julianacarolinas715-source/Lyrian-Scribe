@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿# Lyrian Scribe
 
 Site estático com blog em Markdown e painel Decap CMS. O Eleventy gera as páginas; o Netlify hospeda o site e o CMS salva os artigos no GitHub.
@@ -80,3 +81,7 @@ O painel `/admin/` precisa das configurações OAuth do GitHub e Netlify para au
 No painel, preencha título, resumo, data, categorias, imagem opcional, texto alternativo e corpo do artigo. Marque **Rascunho** para manter um artigo fora do site. A listagem, a página individual e as páginas de categorias são geradas durante o build.
 
 O artigo `content/blog/2026-11-03-escrita-clara.md` é um exemplo que pode ser editado ou removido.
+=======
+# Lyrian-Scribe
+Site e blog da Lyrian Scribe
+>>>>>>> origin/main
