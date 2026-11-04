@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: SEU-USUARIO/SEU-REPOSITORIO
+  branch: main
+locale: pt
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+publish_mode: editorial_workflow
+collections:
+  - name: "blog"
+    label: "Artigos do blog"
+    label_singular: "Artigo"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "blog/{{slug}}/"
+    summary: "{{title}} — {{date | date('YYYY-MM-DD')}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Resumo", name: "description", widget: "text" }
+      - { label: "Data", name: "date", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Categorias", name: "categories", widget: "list", default: ["Escrita"] }
+      - { label: "Imagem de capa", name: "image", widget: "image", required: false }
+      - { label: "Texto alternativo da imagem", name: "image_alt", widget: "string", required: false }
+      - { label: "Rascunho", name: "draft", widget: "boolean", default: false }
+      - { label: "Corpo do artigo", name: "body", widget: "markdown" }
