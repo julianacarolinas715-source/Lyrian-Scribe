@@ -14,6 +14,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("blog.css");
   eleventyConfig.addPassthroughCopy("script.js");
   eleventyConfig.addPassthroughCopy("images");
+  // Decap CMS loads its configuration from /admin/config.yml at runtime.
+  // Eleventy does not copy YAML files automatically, so publish the admin directory as-is.
+  eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addCollection("publishedPosts", (api) =>
     api.getFilteredByGlob("content/blog/**/*.md")
       .filter((post) => !post.data.draft)
