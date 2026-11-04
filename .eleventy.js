@@ -1,4 +1,5 @@
 module.exports = function (eleventyConfig) {
+  eleventyConfig.ignores.add("lyrian_scribe_site/**");
   eleventyConfig.addFilter("slug", (value = "") => String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""));
   eleventyConfig.addFilter("date", (value, format = "dd/MM/yyyy", locale = "pt-BR") => {
     const date = value instanceof Date ? value : new Date(value);
